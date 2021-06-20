@@ -57,6 +57,14 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/product/% \
     system/product_services/%
 
+# Camera
+PRODUCT_PACKAGES += \
+    libstdc++.vendor
+
+# Fingerprint feature
+PRODUCT_PACKAGES += \
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_laurel_sprout
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -198,24 +206,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # Update engine
 PRODUCT_PACKAGES += \
-    bootctrl.trinket.recovery \
-    update_engine \
-    update_engine_sideload \
-    update_verifier
-
-# OTA
-PRODUCT_PACKAGES_DEBUG += \
-    update_engine_client
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    lineage.updater.uri=https://thebiggestboi.skyblueborb.workers.dev/0:/laurel_sprout-gms.json
+    bootctrl.trinket.recovery
 
 # Volte
 PRODUCT_PRODUCT_PROPERTIES += \
