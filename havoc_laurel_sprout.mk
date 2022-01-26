@@ -22,9 +22,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit some common Havoc-OS stuff
 $(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 
-# Inherit core gapps
-$(call inherit-product, vendor/gapps/config_core.mk)
-
 TARGET_BOOT_ANIMATION_RES := 720
 
 TARGET_HAS_FOD := true
@@ -46,4 +43,14 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 ALLOW_MISSING_DEPENDENCIES := true
 
-WITH_GMS := true
+# Havoc
+
+
+HAVOC_BUILD_TYPE := Unofficial
+TARGET_GAPPS_ARCH := arm64
+WITH_GAPPS=true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+
+# Use gestures by default
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
